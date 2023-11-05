@@ -1,0 +1,14 @@
+#Ignore the dataset
+#IMPORTANT: make sure that your dataset is stored in a folder with the same as the one specified below
+
+hw1_data/*
+*png
+*jpg
+
+.vscode
+p1_A_model/*
+p1_B_model/*
+p2_model/*
+p2_model_false/*
+p3_A_model/*
+p3_B_model/*

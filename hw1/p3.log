@@ -1,0 +1,656 @@
+FCN(
+  (backbone): IntermediateLayerGetter(
+    (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+    (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): ReLU(inplace=True)
+    (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    (layer1): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer2): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer3): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (4): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (5): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (6): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (7): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (8): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (9): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (10): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (11): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (12): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (13): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (14): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (15): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (16): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (17): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (18): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (19): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (20): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (21): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (22): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer4): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+  )
+  (classifier): FCNHead(
+    (0): Conv2d(2048, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU()
+    (3): Dropout(p=0.1, inplace=False)
+    (4): Conv2d(512, 7, kernel_size=(1, 1), stride=(1, 1))
+  )
+  (aux_classifier): FCNHead(
+    (0): Conv2d(1024, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU()
+    (3): Dropout(p=0.1, inplace=False)
+    (4): Conv2d(256, 21, kernel_size=(1, 1), stride=(1, 1))
+  )
+)
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:21<00:00,  1.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.91it/s]
+epoch 1, loss = 0.5844953990343845, mIoU = 0.5626650934883252
+Best model found at epoch 1, saving model
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:21<00:00,  1.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.73it/s]
+epoch 2, loss = 0.38776753617055487, mIoU = 0.6661038088516072
+Best model found at epoch 2, saving model
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:21<00:00,  1.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.80it/s]
+epoch 3, loss = 0.3772777895810026, mIoU = 0.6574386815744021
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.78it/s]
+epoch 4, loss = 0.47671636826161184, mIoU = 0.5723661109542001
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:22<00:00,  1.75it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:07<00:00,  4.67it/s]
+epoch 5, loss = 0.42563714764334937, mIoU = 0.6481767104358741
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:22<00:00,  1.76it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.80it/s]
+epoch 6, loss = 0.3346821488530347, mIoU = 0.692552283462343
+Best model found at epoch 6, saving model
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:22<00:00,  1.76it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.77it/s]
+epoch 7, loss = 0.3508814453627124, mIoU = 0.6891080757742728
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.79it/s]
+epoch 8, loss = 0.3996111048441945, mIoU = 0.6328641415587432
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.86it/s]
+epoch 9, loss = 0.3372427024173014, mIoU = 0.6871012591297089
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.86it/s]
+epoch 10, loss = 0.30795262731385953, mIoU = 0.7142326024981485
+Best model found at epoch 10, saving model
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.90it/s]
+epoch 11, loss = 0.29183249288436136, mIoU = 0.7278666935944373
+Best model found at epoch 11, saving model
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.85it/s]
+epoch 12, loss = 0.3903720926380519, mIoU = 0.6601062052255755
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.84it/s]
+epoch 13, loss = 0.38445796636920987, mIoU = 0.6633896679090534
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.86it/s]
+epoch 14, loss = 0.2967825075893691, mIoU = 0.7268582291063942
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.85it/s]
+epoch 15, loss = 0.29918156948053476, mIoU = 0.7308992467190949
+Best model found at epoch 15, saving model
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.84it/s]
+epoch 16, loss = 0.40811828952847107, mIoU = 0.6634183433712544
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.88it/s]
+epoch 17, loss = 0.37062117265480937, mIoU = 0.7139610812692898
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.85it/s]
+epoch 18, loss = 0.31065961707270506, mIoU = 0.731710271532054
+Best model found at epoch 18, saving model
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.87it/s]
+epoch 19, loss = 0.3074725668764476, mIoU = 0.7294183983664234
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.86it/s]
+epoch 20, loss = 0.5393513612674944, mIoU = 0.6757309667879114
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.86it/s]
+epoch 21, loss = 0.3518554844865293, mIoU = 0.6873092947286171
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.85it/s]
+epoch 22, loss = 0.3235293641460664, mIoU = 0.7265918056472009
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.76it/s]
+epoch 23, loss = 0.3223622171490481, mIoU = 0.7297064370227138
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:31<00:00,  1.65it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:07<00:00,  4.24it/s]
+epoch 24, loss = 0.4155037881750049, mIoU = 0.7091664095688563
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:39<00:00,  1.57it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:07<00:00,  4.26it/s]
+epoch 25, loss = 0.35776305108359363, mIoU = 0.7122844996112725
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:40<00:00,  1.55it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:07<00:00,  4.20it/s]
+epoch 26, loss = 0.3315731134604324, mIoU = 0.7307643305691846
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:31<00:00,  1.65it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.79it/s]
+epoch 27, loss = 0.3370025734784025, mIoU = 0.72909744592023
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.76it/s]
+epoch 28, loss = 0.39389859196363075, mIoU = 0.7027085661795032
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:37<00:00,  1.59it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:07<00:00,  4.26it/s]
+epoch 29, loss = 0.45323207110843877, mIoU = 0.6717157389854302
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:40<00:00,  1.55it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:07<00:00,  4.25it/s]
+epoch 30, loss = 0.3491928437442491, mIoU = 0.7223496944694954
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:34<00:00,  1.62it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:07<00:00,  4.35it/s]
+epoch 31, loss = 0.34679949520663783, mIoU = 0.7270451938417393
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:25<00:00,  1.72it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.79it/s]
+epoch 32, loss = 0.7134486768733371, mIoU = 0.6557650681990955
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.77it/s]
+epoch 33, loss = 0.3437113846567544, mIoU = 0.7121759223630801
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.79it/s]
+epoch 34, loss = 0.35379513398264395, mIoU = 0.719753560732517
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.84it/s]
+epoch 35, loss = 0.3599547100902507, mIoU = 0.7259844811520081
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.80it/s]
+epoch 36, loss = 0.37101779962805187, mIoU = 0.7284555728544416
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.79it/s]
+epoch 37, loss = 0.3780730946949034, mIoU = 0.7311827371812168
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.84it/s]
+epoch 38, loss = 0.37014906593795976, mIoU = 0.7274778377646676
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.81it/s]
+epoch 39, loss = 0.3904133202000098, mIoU = 0.727659675489015
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.76it/s]
+epoch 40, loss = 0.4067546014081348, mIoU = 0.7285096895342135
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:21<00:00,  1.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:07<00:00,  4.64it/s]
+epoch 41, loss = 0.4010982353127364, mIoU = 0.7264532796630414
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.79it/s]
+epoch 42, loss = 0.4119913369191415, mIoU = 0.7282781776013311
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:07<00:00,  4.63it/s]
+epoch 43, loss = 0.4010771903576273, mIoU = 0.7275604528219797
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:21<00:00,  1.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.79it/s]
+epoch 44, loss = 0.4689461740128922, mIoU = 0.7081769210708159
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:21<00:00,  1.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.75it/s]
+epoch 45, loss = 0.7514145016444452, mIoU = 0.5061642951169133
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:22<00:00,  1.75it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.78it/s]
+epoch 46, loss = 0.3275770724497058, mIoU = 0.7060899498230795
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.79it/s]
+epoch 47, loss = 0.33561289637829317, mIoU = 0.7221601585468769
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.84it/s]
+epoch 48, loss = 0.45197727835991164, mIoU = 0.6648063191841805
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.83it/s]
+epoch 49, loss = 0.3965979035605084, mIoU = 0.6705881298893309
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.83it/s]
+epoch 50, loss = 0.3639772911414956, mIoU = 0.7124390343614642
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:22<00:00,  1.75it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:07<00:00,  4.58it/s]
+epoch 51, loss = 0.35671752155052894, mIoU = 0.7229933362401237
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:39<00:00,  1.57it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:07<00:00,  4.24it/s]
+epoch 52, loss = 0.43966252876050543, mIoU = 0.6884225847823173
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:40<00:00,  1.56it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:07<00:00,  4.28it/s]
+epoch 53, loss = 0.38726001368327573, mIoU = 0.7183204663958733
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:39<00:00,  1.56it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:07<00:00,  4.27it/s]
+epoch 54, loss = 0.38279974596066907, mIoU = 0.7317838269730321
+Best model found at epoch 54, saving model
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:40<00:00,  1.56it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:07<00:00,  4.21it/s]
+epoch 55, loss = 0.40323929985364276, mIoU = 0.7294554996413943
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:27<00:00,  1.69it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.81it/s]
+epoch 56, loss = 0.4216780131964972, mIoU = 0.7287336749004627
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.79it/s]
+epoch 57, loss = 0.4195011176846244, mIoU = 0.7253824541942866
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:21<00:00,  1.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.74it/s]
+epoch 58, loss = 0.42978443148912804, mIoU = 0.7312223957063404
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.78it/s]
+epoch 59, loss = 0.4239940361091585, mIoU = 0.7326226717075248
+Best model found at epoch 59, saving model
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.83it/s]
+epoch 60, loss = 0.44991439976023906, mIoU = 0.7315433266722647
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.85it/s]
+epoch 61, loss = 0.45533110438422725, mIoU = 0.7203878813559548
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.78it/s]
+epoch 62, loss = 0.451038523492488, mIoU = 0.7260094941000542
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.77it/s]
+epoch 63, loss = 0.4160288305896701, mIoU = 0.7205674379453609
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:21<00:00,  1.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.74it/s]
+epoch 64, loss = 0.4507570740851489, mIoU = 0.7253555843417376
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.84it/s]
+epoch 65, loss = 0.4684119804790526, mIoU = 0.5946161412630115
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.84it/s]
+epoch 66, loss = 0.32828513927983516, mIoU = 0.7125485444450876
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.83it/s]
+epoch 67, loss = 0.34861071458594367, mIoU = 0.7251269129189836
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.76it/s]
+epoch 68, loss = 0.3800922219048847, mIoU = 0.7235356003222377
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:25<00:00,  1.72it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:07<00:00,  4.71it/s]
+epoch 69, loss = 0.39549346832614957, mIoU = 0.726306285631215
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:22<00:00,  1.76it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.78it/s]
+epoch 70, loss = 0.4170886153976123, mIoU = 0.7298678445782905
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.77it/s]
+epoch 71, loss = 0.43818731459252763, mIoU = 0.730058393213451
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.85it/s]
+epoch 72, loss = 0.4460094650134896, mIoU = 0.7297410290839486
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.83it/s]
+epoch 73, loss = 0.4572268528017131, mIoU = 0.733297739513872
+Best model found at epoch 73, saving model
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.84it/s]
+epoch 74, loss = 0.4647173917654789, mIoU = 0.7344161561544352
+Best model found at epoch 74, saving model
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.86it/s]
+epoch 75, loss = 0.4021412039344961, mIoU = 0.7180832400737129
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.84it/s]
+epoch 76, loss = 0.4578709602355957, mIoU = 0.7229241827021592
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.83it/s]
+epoch 77, loss = 0.4529924573320331, mIoU = 0.7323954740131257
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.85it/s]
+epoch 78, loss = 0.4517715119502761, mIoU = 0.7326626794486026
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.83it/s]
+epoch 79, loss = 0.4395706698750005, mIoU = 0.7335459908404487
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.85it/s]
+epoch 80, loss = 0.4924641694083358, mIoU = 0.7319210513590847
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:21<00:00,  1.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.76it/s]
+epoch 81, loss = 0.5101328428947565, mIoU = 0.72589846012017
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.76it/s]
+epoch 82, loss = 0.49148554061398364, mIoU = 0.7297699936432416
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.74it/s]
+epoch 83, loss = 0.4955980023651412, mIoU = 0.7370055830733009
+Best model found at epoch 83, saving model
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:21<00:00,  1.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.80it/s]
+epoch 84, loss = 0.5128946417208874, mIoU = 0.7285239868780568
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.77it/s]
+epoch 85, loss = 0.4814978046624949, mIoU = 0.7291169859526014
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:21<00:00,  1.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:07<00:00,  4.62it/s]
+epoch 86, loss = 0.5080851594155485, mIoU = 0.7335221480637827
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.79it/s]
+epoch 87, loss = 0.37033914261017786, mIoU = 0.6924813990620484
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.80it/s]
+epoch 88, loss = 0.40294545663125586, mIoU = 0.6978058432096097
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.84it/s]
+epoch 89, loss = 0.41461507084243227, mIoU = 0.6908024679202454
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:21<00:00,  1.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.74it/s]
+epoch 90, loss = 0.4025622040710666, mIoU = 0.7273524355563316
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:21<00:00,  1.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.76it/s]
+epoch 91, loss = 0.4183415398001671, mIoU = 0.7349903945964718
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:21<00:00,  1.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.84it/s]
+epoch 92, loss = 0.439072672277689, mIoU = 0.7348544704295108
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:19<00:00,  1.79it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.84it/s]
+epoch 93, loss = 0.4115828878500245, mIoU = 0.6519368842804654
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.76it/s]
+epoch 94, loss = 0.3665408327272444, mIoU = 0.7291899032136191
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.76it/s]
+epoch 95, loss = 0.4157192822207104, mIoU = 0.7294280900066146
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.74it/s]
+epoch 96, loss = 0.447051299115022, mIoU = 0.7334246305877554
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.77it/s]
+epoch 97, loss = 0.44615926864472305, mIoU = 0.7199046881468654
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:20<00:00,  1.78it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.77it/s]
+epoch 98, loss = 0.44136724824255164, mIoU = 0.7297282972786553
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:21<00:00,  1.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.72it/s]
+epoch 99, loss = 0.45292703897664044, mIoU = 0.7331668909597542
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [02:21<00:00,  1.77it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  4.75it/s]
+epoch 100, loss = 0.49747949974103406, mIoU = 0.7298269067388186
+best mIoU: 0.7370055830733009
