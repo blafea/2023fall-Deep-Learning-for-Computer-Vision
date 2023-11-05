@@ -16,9 +16,11 @@ model = UNet()
 model.load_state_dict(torch.load(model_path))
 model.to(device)
 
-for i in range(10):
-    noise = torch.load(os.path.join(noise_path, f"{i:02d}.pt"))
+noise_names = [filename for filename in os.listdir(noise_path) if filename.endswith(".pt")]
+
+for noise_name in noise_names:
+    noise = torch.load(os.path.join(noise_path, noise_name))
     noise.to(device)
     with torch.no_grad():
         img = sample(model, noise)
-        save_image(img, os.path.join(output_path, f"{i:02d}.png"))
+        save_image(img, os.path.join(output_path, noise_name.replace(".pt", ".png")))
