@@ -21,7 +21,7 @@ peft_type = "lora"
 
 tokenizer = BPETokenizer("encoder.json", "vocab.bpe")
 model = Transformer_encdec(model_name, decoder_weights, peft_type)
-state = model.load_state_dict(torch.load("./models/best_model.pth"), strict=False)
+state = model.load_state_dict(torch.load("best_model.pth"), strict=False)
 # assert len(state.unexpected_keys) == 0
 model = model.to(device)
 
