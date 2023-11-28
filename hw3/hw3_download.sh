@@ -1,0 +1,1 @@
+gdown "https://drive.google.com/u/3/uc?id=1oW4FLcqsVt9RltRgWZTKY0txdxtBGTd5&export=download" -O "best_model.pth"
