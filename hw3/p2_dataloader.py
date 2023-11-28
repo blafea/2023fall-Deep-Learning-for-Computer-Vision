@@ -33,7 +33,7 @@ class p2_dataset(Dataset):
         img = Image.open(os.path.join(self.path, name)).convert("RGB")
         img = self.tfm(img)
 
-        return {"caption": data["caption"], "image": img, "filename": name}
+        return {"caption": data["caption"], "image": img, "filenames": name}
 
     def __len__(self):
         return len(self.data)
@@ -45,16 +45,13 @@ class p2_dataset(Dataset):
         images = []
         for sample in samples:
             token = self.tokenizer.encode(sample["caption"])
-            # print(token)
             tokens.append([50256] + token + [50256])
-            # print(captions[-1])
-            filenames.append(sample["filename"])
+            filenames.append(sample["filenames"])
             images.append(sample["image"])
             captions.append(sample["caption"])
         max_len = max([len(t) for t in tokens])
         for i in range(len(tokens)):
             tokens[i].extend([-100] * (max_len - len(tokens[i])))
-            # print(tokens[i])
         images = torch.stack(images, dim=0)
         return {
             "filenames": filenames,
@@ -62,3 +59,19 @@ class p2_dataset(Dataset):
             "image": images,
             "caption": captions,
         }
+
+class test_dataset(Dataset):
+    def __init__(self, path, tfm):
+        super().__init__()
+        self.path = path
+        self.filenames = [name for name in os.listdir(path) if name.endswith(".jpg")]
+        self.tfm = tfm
+
+    def __getitem__(self, idx):
+        img = Image.open(os.path.join(self.path, self.filenames[idx])).convert('RGB')
+        img = self.tfm(img)
+
+        return img, self.filenames[idx][:-4]
+
+    def __len__(self):
+        return len(self.filenames)
