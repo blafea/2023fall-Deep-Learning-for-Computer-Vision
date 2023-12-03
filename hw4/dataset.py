@@ -227,7 +227,7 @@ class KlevrDataset(Dataset):
             camera_quaternions = np.array(self.meta['camera']['quaternions'])
             for image_id in self.split_ids:
                 if self.get_rgb:
-                    image_path = os.path.join(self.root_dir, f'rgba_{image_id:05d}.png')
+                    image_path = os.path.join(self.root_dir, f'{image_id:05d}.png')
                     img = Image.open(image_path)
                     img = img.resize(self.img_wh, Image.Resampling.LANCZOS)
                     img = self.transform(img) # (4, h, w)
@@ -274,7 +274,7 @@ class KlevrDataset(Dataset):
             image_id = self.split_ids[idx]
 
             if self.get_rgb:
-                img = Image.open(os.path.join(self.root_dir, f'rgba_{image_id:05d}.png'))
+                img = Image.open(os.path.join(self.root_dir, f'{image_id:05d}.png'))
                 img = img.resize(self.img_wh, Image.Resampling.LANCZOS)
                 img = self.transform(img)
                 valid_mask = (img[-1]>0).flatten()
@@ -298,7 +298,8 @@ class KlevrDataset(Dataset):
                               1) # (H*W, 8)
 
             sample = {'rays': rays.float(),
-                      'c2w': c2w}
+                      'c2w': c2w,
+                      'name':image_id}
             if self.get_rgb:
                 sample['rgbs'] = img
                 sample['valid_mask'] = valid_mask
@@ -322,7 +323,8 @@ class KlevrDataset(Dataset):
                               1) # (H*W, 8)
 
             sample = {'rays': rays.float(),
-                      'c2w': c2w}
+                      'c2w': c2w,
+                      'name':image_id}
 
 
         return sample
