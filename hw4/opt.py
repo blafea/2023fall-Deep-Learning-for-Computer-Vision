@@ -1,5 +1,6 @@
 import argparse
 
+
 def get_opts():
     parser = argparse.ArgumentParser()
 
@@ -16,7 +17,7 @@ def get_opts():
                         help='use disparity depth sampling')
     parser.add_argument('--perturb', type=float, default=1.0,
                         help='factor to perturb depth sampling points')
-    parser.add_argument('--noise_std', type=float, default=1.0,
+    parser.add_argument('--noise_std', type=float, default=0.0,
                         help='std dev of noise added to regularize sigma')
 
     parser.add_argument('--batch_size', type=int, default=1024,

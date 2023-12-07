@@ -1,4 +1,5 @@
-import os, sys
+import os
+import sys
 import torch
 from collections import defaultdict
 import matplotlib.pyplot as plt
@@ -14,9 +15,9 @@ torch.backends.cudnn.benchmark = True
 input_folder = sys.argv[1]
 output_folder = sys.argv[2]
 
-ckpt_path = "lightning_logs/first try/checkpoints/epoch=9-step=51840.ckpt"
+ckpt_path = "best_model.ckpt"
 img_wh = (256, 256)
-dataset = KlevrDataset(input_folder, split="test")
+dataset = KlevrDataset(input_folder, split="val")
 
 embedding_xyz = Embedding(3, 10)
 embedding_dir = Embedding(3, 4)
@@ -38,6 +39,7 @@ N_importance = 64
 use_disp = False
 chunk = 1024*32*4
 
+
 @torch.no_grad()
 def f(rays):
     """Do batched inference on rays using chunk."""
@@ -54,7 +56,7 @@ def f(rays):
                         0,
                         N_importance,
                         chunk,
-                        white_back=True)
+                        white_back=False)
 
         for k, v in rendered_ray_chunks.items():
             results[k] += [v]
@@ -63,13 +65,16 @@ def f(rays):
         results[k] = torch.cat(v, 0)
     return results
 
+
 for sample in dataset:
     rays = sample['rays'].cuda()
 
     results = f(rays)
     torch.cuda.synchronize()
     img_pred = results['rgb_fine'].view(img_wh[1], img_wh[0], 3).cpu().numpy()
-    alpha_pred = results['opacity_fine'].view(img_wh[1], img_wh[0]).cpu().numpy()
+    alpha_pred = results['opacity_fine'].view(
+        img_wh[1], img_wh[0]).cpu().numpy()
     depth_pred = results['depth_fine'].view(img_wh[1], img_wh[0])
 
-    plt.imsave(os.path.join(output_folder, f"{sample['name']:05d}.png"), img_pred)
+    plt.imsave(os.path.join(output_folder,
+               f"{sample['name']:05d}.png"), img_pred)

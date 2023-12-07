@@ -1,4 +1,5 @@
-import os, sys
+import os
+import sys
 from opt import get_opts
 import torch
 from collections import defaultdict
@@ -33,8 +34,8 @@ class NeRFSystem(LightningModule):
 
         self.loss = MSELoss()
         self.validation_step_outputs = []
-        self.embedding_xyz = Embedding(3, 10) # 10 is the default number
-        self.embedding_dir = Embedding(3, 4) # 4 is the default number
+        self.embedding_xyz = Embedding(3, 10)  # 10 is the default number
+        self.embedding_dir = Embedding(3, 4)  # 4 is the default number
         self.embeddings = [self.embedding_xyz, self.embedding_dir]
 
         self.nerf_coarse = NeRF()
@@ -44,8 +45,8 @@ class NeRFSystem(LightningModule):
             self.models += [self.nerf_fine]
 
     def decode_batch(self, batch):
-        rays = batch['rays'] # (B, 8)
-        rgbs = batch['rgbs'] # (B, 3)
+        rays = batch['rays']  # (B, 8)
+        rgbs = batch['rgbs']  # (B, 3)
         return rays, rgbs
 
     def forward(self, rays):
@@ -62,8 +63,8 @@ class NeRFSystem(LightningModule):
                             self.hparams_.perturb,
                             self.hparams_.noise_std,
                             self.hparams_.N_importance,
-                            self.hparams_.chunk, # chunk size is effective in val mode
-                            white_back=True)
+                            self.hparams_.chunk,  # chunk size is effective in val mode
+                            white_back=False)
 
             for k, v in rendered_ray_chunks.items():
                 results[k] += [v]
@@ -81,11 +82,11 @@ class NeRFSystem(LightningModule):
         parameters = []
         for model in self.models:
             parameters += list(model.parameters())
-        self.optimizer = Adam(parameters, lr=hparams.lr, eps=eps, 
-                         weight_decay=self.hparams_.weight_decay)
-        scheduler = MultiStepLR(self.optimizer, milestones=self.hparams_.decay_step, 
+        self.optimizer = Adam(parameters, lr=hparams.lr, eps=eps,
+                              weight_decay=self.hparams_.weight_decay)
+        scheduler = MultiStepLR(self.optimizer, milestones=self.hparams_.decay_step,
                                 gamma=self.hparams_.decay_gamma)
-        
+
         return [self.optimizer], [scheduler]
 
     def train_dataloader(self):
@@ -99,9 +100,10 @@ class NeRFSystem(LightningModule):
         return DataLoader(self.val_dataset,
                           shuffle=False,
                           num_workers=4,
-                          batch_size=1, # validate one image (H*W rays) at a time
+                          # validate one image (H*W rays) at a time
+                          batch_size=1,
                           pin_memory=True)
-    
+
     def training_step(self, batch, batch_nb):
         log = {'lr': get_learning_rate(self.optimizer)}
         rays, rgbs = self.decode_batch(batch)
@@ -116,37 +118,40 @@ class NeRFSystem(LightningModule):
         return {'loss': loss,
                 'progress_bar': {'train_psnr': psnr_},
                 'log': log
-               }
+                }
 
     def validation_step(self, batch, batch_nb):
         rays, rgbs = self.decode_batch(batch)
-        rays = rays.squeeze() # (H*W, 3)
-        rgbs = rgbs.squeeze() # (H*W, 3)
+        rays = rays.squeeze()  # (H*W, 3)
+        rgbs = rgbs.squeeze()  # (H*W, 3)
         results = self(rays)
         log = {'val_loss': self.loss(results, rgbs)}
         typ = 'fine' if 'rgb_fine' in results else 'coarse'
-        
+
         if batch_nb == 0:
             W, H = self.hparams_.img_wh
             img = results[f'rgb_{typ}'].view(H, W, 3).cpu()
-            img = img.permute(2, 0, 1) # (3, H, W)
-            img_gt = rgbs.view(H, W, 3).permute(2, 0, 1).cpu() # (3, H, W)
-            depth = visualize_depth(results[f'depth_{typ}'].view(H, W)) # (3, H, W)
-            stack = torch.stack([img_gt, img, depth]) # (3, 3, H, W)
+            img = img.permute(2, 0, 1)  # (3, H, W)
+            img_gt = rgbs.view(H, W, 3).permute(2, 0, 1).cpu()  # (3, H, W)
+            depth = visualize_depth(
+                results[f'depth_{typ}'].view(H, W))  # (3, H, W)
+            stack = torch.stack([img_gt, img, depth])  # (3, 3, H, W)
 
         log['val_psnr'] = psnr(results[f'rgb_{typ}'], rgbs)
         self.validation_step_outputs.append(log)
         return log
 
     def on_validation_epoch_end(self):
-        mean_loss = torch.stack([x['val_loss'] for x in self.validation_step_outputs]).mean()
-        mean_psnr = torch.stack([x['val_psnr'] for x in self.validation_step_outputs]).mean()
-        print(mean_loss.item(), mean_psnr.item())
+        mean_loss = torch.stack([x['val_loss']
+                                for x in self.validation_step_outputs]).mean()
+        mean_psnr = torch.stack([x['val_psnr']
+                                for x in self.validation_step_outputs]).mean()
+        print(f"loss: {mean_loss.item()}, psnr: {mean_psnr.item()}")
         return {'progress_bar': {'val_loss': mean_loss,
                                  'val_psnr': mean_psnr},
                 'log': {'val/loss': mean_loss,
                         'val/psnr': mean_psnr}
-               }
+                }
 
 
 if __name__ == '__main__':
